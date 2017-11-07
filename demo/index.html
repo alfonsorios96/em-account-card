@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, minimum-scale=1, initial-scale=1, user-scalable=yes">
+
+    <title>em-account-card demo</title>
+
+    <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+
+    <link rel="import" href="../../iron-demo-helpers/demo-pages-shared-styles.html">
+    <link rel="import" href="../../iron-demo-helpers/demo-snippet.html">
+    <link rel="import" href="../em-account-card.html">
+
+    <custom-style>
+        <style is="custom-style" include="demo-pages-shared-styles">
+        </style>
+    </custom-style>
+</head>
+<body>
+<div class="vertical-section-container centered">
+    <h3>Basic em-account-card demo</h3>
+    <demo-snippet>
+        <template>
+            <h2>Debit card example</h2>
+            <em-account-card
+                    account='{"id": "1", "name":"Express Light", "cardNumber": "****4798", "type": "debit", "ammount": "199.99"}'></em-account-card>
+            <hr>
+            <h2>Credit card example</h2>
+            <em-account-card
+                    account='{"id": "2", "name":"Plus Dark", "cardNumber": "****4443", "type": "credit", "limitCredit": "35000.00", "availableCredit": "28100", "dayCutOff": "10", "dayLimit": "18", "minPay": "12000", "requiredPay": "20000"}'></em-account-card>
+        </template>
+    </demo-snippet>
+</div>
+</body>
+</html>

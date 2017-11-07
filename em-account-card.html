@@ -1,0 +1,64 @@
+<link rel="import" href="../polymer/polymer-element.html">
+
+<link rel="import" href="../iron-icons/iron-icons.html">
+<link rel="import" href="../paper-button/paper-button.html">
+<link rel="import" href="../paper-card/paper-card.html">
+
+<link rel="import" href="./em-account-card-styles.html">
+
+<dom-module id="em-account-card">
+    <template>
+        <style include="em-account-card-styles"></style>
+        <paper-card heading="[[account.name]] [[account.cardNumber]]">
+            <div class="card-content">
+                <div class="card-information">
+                    <template is="dom-if" if="[[isDebit]]">
+                        <paper-item>
+                            $199.99 MXN
+                        </paper-item>
+                    </template>
+                    <template is="dom-if" if="[[!isDebit]]">
+                        <div class="credit-card-container">
+                            <div class="credit-information">
+                                <h4>Crédito</h4>
+                                <paper-item>
+                                    Available <br><strong>[[account.availableCredit]]</strong>
+                                </paper-item>
+                                <paper-item>
+                                    Limit Credit <br><strong>[[account.limitCredit]]</strong>
+                                </paper-item>
+                            </div>
+                            <div class="credit-dates">
+                                <h4>Fechas importantes</h4>
+                                <paper-item>
+                                    Fecha de corte <br> <strong>[[account.dayCutOff]]</strong>
+                                </paper-item>
+                                <paper-item>
+                                    Fecha límite de pago <br><strong>[[account.dayLimit]]</strong>
+                                </paper-item>
+                            </div>
+                            <div class="credit-pay">
+                                <h4>Información de pago</h4>
+                                <paper-item>
+                                    Pago mínimo <br><strong>[[account.minPay]]</strong>
+                                </paper-item>
+                                <paper-item>
+                                    Pago para no generar intereses <br><strong>[[account.requiredPay]]</strong>
+                                </paper-item>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </div>
+            <div class="card-actions">
+                <paper-button>See records</paper-button>
+                <paper-button>Make operation</paper-button>
+                <template is="dom-if" if="[[!isDebit]]">
+                    <paper-button>Pay card</paper-button>
+                </template>
+            </div>
+        </paper-card>
+    </template>
+
+    <script src="./em-account-card.js"></script>
+</dom-module>
